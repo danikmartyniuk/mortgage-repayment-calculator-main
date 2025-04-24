@@ -1,61 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Mortgage repayment calculator</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <div class="calc_container">
+        <form class="calc_content">
 
-  Mortgage Calculator
-  Clear All
+            <div class="calc_header">
+                <h2 class="calc_title">Mortgage Calculator</h2>
+                <button type="reset" class="clear_button">Clear All</button>
+            </div>
 
-  Mortgage Amount
+            <div class="config_container">
+                <div class="mortgage_amount_container">
+                    <label class="field_label" for="mortgage_amount">Mortgage Amount</label>
+                    <div class="input_container">
+                        <input class="field_input" type="number" id="mortgage_amount" name="mortgage_amount" min="0" required>
+                        <span class="field_icon">£</span>
+                    </div>
+                </div>
 
-  Mortgage Term
+                <div class="term_rate_container">
+                    <div class="term_rate_input_container">
+                        <label class="field_label" for="mortgage_term">Mortgage Term</label>
+                        <div class="input_container">
+                            <input class="field_input half_input" type="number" id="mortgage_term" name="mortgage_term" min="0" step="1" required>
+                            <span class="field_icon right">years</span>
+                        </div>
+                    </div>
 
-  Interest Rate
+                    <div class="term_rate_input_container">
+                        <label class="field_label" for="interest_rate">Interest Rate</label>
+                        <div class="input_container">
+                            <input class="field_input half_input input_right" type="number" id="interest_rate" name="interest_rate" min="0" step="0.01" required>
+                            <span class="field_icon right prc">%</span>
+                        </div>
+                    </div>
+                </div>
 
-  Mortgage Type
-  Repayment
-  Interest Only
+                <div class="mortgage_type_container">
+                    <p class="field_label">Mortgage Type</p>
+                    <fieldset class="mortgage_type_fieldset" id="mortgage_type" aria-required="true">
+                        <div class="radio_input">
+                            <input type="radio" id="repayment" name="mortgage_type" value="Repayment">
+                            <label class="radio_label" for="repayment">Repayment</label>
+                        </div>
+                        <div class="radio_input">
+                            <input type="radio" id="interest" name="mortgage_type" value="Interest Only">
+                            <label class="radio_label" for="interest">Interest Only</label><br>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
 
-  Calculate Repayments
+            <button class="calc_button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#133041" d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"/></svg>
+                Calculate Repayments
+            </button>
 
-  <!-- Empty results start -->
-
-  Results shown here
-
-  Complete the form and click “calculate repayments” to see what 
-  your monthly repayments would be.
-
-  <!-- Empty results end -->
-
-  <!-- Completed results start -->
-
-  Your results
-
-  Your results are shown below based on the information you provided. 
-  To adjust the results, edit the form and click “calculate repayments” again.
-
-  Your monthly repayments
-
-  Total you'll repay over the term
-
-  <!-- Completed results end -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+        </form>
+    </div>
+    <div class="result_container">
+        <div class="no_result_content">
+            <img src="assets/images/illustration-empty.svg" alt="zero mortgage calculator">
+            <h2 class="result_title">Results shown here</h2>
+            <p class="result_text">
+                Complete the form and click “calculate repayments” to see what your monthly repayments would be.
+            </p>
+        </div>
+        <div class="result_content">
+            <div class="result_heading_container">
+                <h2 class="result_title">Your results</h2>
+                <p class="result_text complete_result_text">
+                    Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.
+                </p>
+            </div>
+            <div class="repayments_container">
+                <div class="monthly_repayments_container">
+                    <p class="field_label">Your monthly repayments</p>
+                    <p class="monthly_repayments_amount">£1,797.74</p>
+                </div>
+                <hr>
+                <div class="total_repayments_container">
+                    <p class="field_label">Total you'll repay over the term</p>
+                    <p class="total_repayments_amount">£539,322.94</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

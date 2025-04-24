@@ -1,0 +1,432 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: hsl(202, 86%, 94%);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 48rem;
+    display: flex;
+    flex-direction: row;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+}
+
+.calc_container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.calc_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem 2rem;
+    box-sizing: border-box;
+}
+
+.calc_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: row;
+}
+
+.calc_title {
+    font-size: larger;
+    color: hsl(202, 55%, 16%);
+    font-weight: 700;
+    margin: 0;
+}
+
+.clear_button {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    color: hsl(200, 26%, 54%);
+    cursor: pointer;
+}
+
+.config_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mortgage_amount_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.field_label {
+    color: hsl(200, 26%, 54%);
+    width: 100%;
+    font-size: smaller;
+    margin: 0;
+}
+
+.input_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.field_input {
+    width: 100%;
+    height: 2.5rem;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    border: 1px solid hsl(200, 26%, 54%);
+    font-family: inherit;
+    padding: 0 0 0 2.75rem;
+    font-weight: 700;
+}
+
+.field_input:user-invalid {
+    border: 1px solid hsl(4, 69%, 50%);
+}
+
+.field_input:user-invalid + .field_icon {
+    border: 1px solid hsl(4, 69%, 50%);
+    background-color: hsl(4, 69%, 50%);
+    color: white;
+}
+
+.mortgage_amount_container:has(.field_input:user-invalid)::after {
+    content: "This field is required";
+    color: hsl(4, 69%, 50%);
+    font-size: x-small;
+    width: 100%;
+}
+
+.term_rate_input_container:has(.field_input:user-invalid)::after {
+    content: "This field is required";
+    color: hsl(4, 69%, 50%);
+    font-size: x-small;
+    width: 100%;
+}
+
+.field_input:hover {
+    cursor: pointer;
+}
+
+.field_input:focus {
+    outline: none;
+    border: 1px solid hsl(61, 70%, 52%);
+}
+
+.field_input:focus + .field_icon {
+    outline: none;
+    border: 1px solid hsl(61, 70%, 52%);
+    background-color: hsl(61, 70%, 52%);
+    color: hsl(202, 55%, 16%);
+}
+
+.field_input::-webkit-outer-spin-button,
+.field_input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.term_rate_container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.term_rate_input_container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.half_input {
+    width: 100%;
+    padding: 0 3.5rem 0 0.75rem;
+}
+
+.input_right {
+    padding-right: 2.5rem;
+}
+
+.field_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: smaller;
+    position: absolute;
+    color: hsl(200, 24%, 40%);
+    height: 2.5rem;
+    width: 2rem;
+    background-color: hsl(202, 86%, 94%);
+    border-radius: 0.25rem 0 0 0.25rem;
+    border: 1px solid hsl(200, 26%, 54%);
+    box-sizing: border-box;
+    border-right: none;
+}
+
+.right {
+    right: 0;
+    border-left: none;
+    border-right: 1px solid hsl(200, 26%, 54%);
+    border-radius: 0 0.25rem 0.25rem 0;
+    width: 3.5rem;
+}
+
+.prc {
+    width: 2.5rem;
+}
+
+.mortgage_type_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.mortgage_type_fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.5rem;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mortgage_type_container:not(:has(input[type=radio]:checked))::after {
+    content: "This field is required";
+    color: hsl(4, 69%, 50%);
+    font-size: x-small;
+    width: 100%;
+}
+
+.radio_input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 2.5rem;
+    border: 1px solid hsl(200, 26%, 54%);
+    border-radius: 0.25rem;
+}
+
+.radio_input:hover {
+    border: 1px solid hsl(61, 70%, 52%);
+}
+
+input[type=radio] {
+    height: 1rem;
+    width: 1rem;
+    margin: 0 0.75rem;
+}
+
+input[type=radio]:user-invalid {
+    border: 1px solid purple;
+}
+
+input[type=radio]:hover, .radio_label:hover {
+    cursor: pointer;
+}
+
+input[type=radio]:checked {
+    position: relative;
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid hsl(61, 70%, 52%);
+}
+
+input[type=radio]:checked::after {
+    content: "";
+    position: absolute;
+    top: 0.125rem;
+    left: 0.125rem;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-radius: 50%;
+    background-color: hsl(61, 70%, 52%);
+}
+
+.radio_input:has(input[type=radio]:checked) {
+    background-color: hsl(61, 70%, 92%);
+    border: 1px solid hsl(61, 70%, 52%);
+}
+
+.radio_label {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: bold;
+    font-size: smaller;
+    color: hsl(202, 55%, 16%);
+}
+
+.calc_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+    background-color: hsl(61, 70%, 52%);
+    border-color: transparent;
+    border-radius: 2.5rem;
+    width: 75%;
+    height: 2.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+    color: hsl(202, 55%, 16%);
+}
+
+.calc_button:hover {
+    background-color: hsl(61, 70%, 72%);
+    transition: 0.3s;
+}
+
+.result_container {
+    width: 50%;
+    background-color: hsl(202, 55%, 16%);
+    border-radius: 0 0 0 3rem;
+    padding: 2rem 2rem;
+    box-sizing: border-box;
+}
+
+.no_result_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+    display: none;
+}
+
+.no_result_content img {
+    max-height: 8rem;
+    max-width: 8rem;
+}
+
+.result_title {
+    color: white;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.result_text {
+    text-align: center;
+    color: hsl(200, 26%, 54%);
+    margin: 0;
+    font-size: 0.75rem;
+}
+
+.result_content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    gap: 2rem;
+}
+
+.result_heading_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.complete_result_text {
+    text-align: left;
+}
+
+.repayments_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem;
+    gap: 1.5rem;
+    box-sizing: border-box;
+    background-color: hsl(202, 55%, 12%);
+    width: 100%;
+    border-radius: 0.25rem;
+    box-shadow: 0 -4px hsl(61, 70%, 52%);
+}
+
+hr {
+    appearance: none;
+    width: 100%;
+    height: 1px;
+    border: none;
+    background-color: hsl(200, 24%, 40%);
+}
+
+.monthly_repayments_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.monthly_repayments_amount {
+    font-size: xxx-large;
+    font-weight: 500;
+    color: hsl(61, 70%, 52%);
+    margin: 0;
+}
+
+.total_repayments_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.25rem;
+}
+
+.total_repayments_amount {
+    font-size: larger;
+    color: white;
+    margin: 0;
+}
