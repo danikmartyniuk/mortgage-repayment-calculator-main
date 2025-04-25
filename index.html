@@ -13,6 +13,7 @@
           rel="stylesheet">
 
     <link rel="stylesheet" href="styles.css">
+    <script src="mortgage_calculation.js"></script>
 
     <title>Frontend Mentor | Mortgage repayment calculator</title>
 
@@ -31,11 +32,11 @@
 <body>
 <div class="container">
     <div class="calc_container">
-        <form class="calc_content">
+        <form class="calc_content" id="calc_form" onsubmit="calculateMortgage(event)">
 
             <div class="calc_header">
                 <h2 class="calc_title">Mortgage Calculator</h2>
-                <button type="reset" class="clear_button">Clear All</button>
+                <button type="reset" class="clear_button" onclick="clearInputs(event)">Clear All</button>
             </div>
 
             <div class="config_container">
@@ -69,18 +70,18 @@
                     <p class="field_label">Mortgage Type</p>
                     <fieldset class="mortgage_type_fieldset" id="mortgage_type" aria-required="true">
                         <div class="radio_input">
-                            <input type="radio" id="repayment" name="mortgage_type" value="Repayment">
+                            <input type="radio" id="repayment" name="mortgage_type" value="r">
                             <label class="radio_label" for="repayment">Repayment</label>
                         </div>
                         <div class="radio_input">
-                            <input type="radio" id="interest" name="mortgage_type" value="Interest Only">
+                            <input type="radio" id="interest" name="mortgage_type" value="i">
                             <label class="radio_label" for="interest">Interest Only</label><br>
                         </div>
                     </fieldset>
                 </div>
             </div>
 
-            <button class="calc_button">
+            <button class="calc_button" type="submit">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#133041" d="M18.75 2.25H5.25a1.5 1.5 0 0 0-1.5 1.5v16.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V3.75a1.5 1.5 0 0 0-1.5-1.5Zm-10.5 16.5a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 18.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25ZM12 15a1.125 1.125 0 1 1 0-2.25A1.125 1.125 0 0 1 12 15Zm3.75 3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm0-3.75a1.125 1.125 0 1 1 0-2.25 1.125 1.125 0 0 1 0 2.25Zm1.5-5.25a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 .75.75v3.75Z"/></svg>
                 Calculate Repayments
             </button>
@@ -105,12 +106,12 @@
             <div class="repayments_container">
                 <div class="monthly_repayments_container">
                     <p class="field_label">Your monthly repayments</p>
-                    <p class="monthly_repayments_amount">£1,797.74</p>
+                    <p class="monthly_repayments_amount" id="monthly_repayments_value">£1,797.74</p>
                 </div>
                 <hr>
                 <div class="total_repayments_container">
                     <p class="field_label">Total you'll repay over the term</p>
-                    <p class="total_repayments_amount">£539,322.94</p>
+                    <p class="total_repayments_amount"  id="total_repayments_value">£539,322.94</p>
                 </div>
             </div>
         </div>
