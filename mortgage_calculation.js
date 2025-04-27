@@ -35,7 +35,7 @@ function calculateMortgage(event) {
 }
 
 function clearInputs(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     document.querySelector('#mortgage_amount').value = null
     document.querySelector('#mortgage_term').value = null
